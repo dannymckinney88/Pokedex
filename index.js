@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const axios = require('axios'); 
+const db = require('./models');
 const ejsLayouts = require('express-ejs-layouts');
 const app = express();
 const port = process.env.PORT || 3000;
@@ -25,6 +26,11 @@ app.use('/pokemon', require('./routes/pokemon'));
 
 var server = app.listen(port, function() {
   console.log('...listening on', port );
+});
+db.pokemon.destroy({
+  where: { name: 'Pikachu' }
+}).then(function() {
+  // do something when done deleting
 });
 
 module.exports = server;
