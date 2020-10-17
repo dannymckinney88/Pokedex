@@ -17,7 +17,12 @@ app.get('/', function(req, res) {
   // Use request to call the API
   axios.get(pokemonUrl).then( function(apiResponse) {
     var pokemon = apiResponse.data.results;
-    res.render('index', { pokemon: pokemon.slice(0, 151) });
+    // console.log(pokemon[0].url)
+    axios.get(pokemon[0].url).then((apiRes)=>{
+      console.log(apiRes.data.sprites)
+      pokeImg = apiRes.data.sprites.front_default
+      res.render('index', { pokemon: pokemon.slice(0, 151),  img: pokeImg });
+    })
   })
 });
 
@@ -27,10 +32,7 @@ app.use('/pokemon', require('./routes/pokemon'));
 var server = app.listen(port, function() {
   console.log('...listening on', port );
 });
-db.pokemon.destroy({
-  where: { name: 'Pikachu' }
-}).then(function() {
-  // do something when done deleting
-});
+
+
 
 module.exports = server;
