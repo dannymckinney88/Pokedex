@@ -1,0 +1,24 @@
+<div class="container">
+    <h1 class="text-center">Your top pokemon</h1>
+    <p class="text-center">
+      <a href="/">Home</a>
+    </p>
+    <div class="d-flex flex-wrap">
+    <% for(let i=0; i < pokemon.length; i++) { %>
+  
+      <div class="card bg-info p-2" style="width: 10rem;">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= i+1 %>.png" class="card-img-top" alt="">
+        <div class="card-body ">
+          <p class="card-text"> <%= pokemon[i].name %> </p>
+          <form method="POST" action="/pokemon">
+            <input hidden type="text" name="name" value="<%= pokemon.name %>">
+            <button class="btn btn-success" type="submit">Add to Favorite Pokemon</button>
+          </form>
+        </div>
+      </div>
+  
+    <% } %>
+    
+    
+  </div>
+  

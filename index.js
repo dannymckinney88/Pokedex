@@ -13,13 +13,13 @@ app.use(ejsLayouts);
 
 // GET / - main index of site
 app.get('/', function(req, res) {
-  var pokemonUrl = 'http://pokeapi.co/api/v2/pokemon/';
+  var pokemonUrl = 'http://pokeapi.co/api/v2/pokemon/?limit=151';
   // Use request to call the API
   axios.get(pokemonUrl).then( function(apiResponse) {
     var pokemon = apiResponse.data.results;
-    // console.log(pokemon[0].url)
-    axios.get(pokemon[0].url).then((apiRes)=>{
-      console.log(apiRes.data.sprites)
+    // console.log(apiResponse.data)
+    axios.get(pokemon[1].url).then((apiRes)=>{
+      // console.log(apiRes.data.sprites)
       pokeImg = apiRes.data.sprites.front_default
       res.render('index', { pokemon: pokemon.slice(0, 151),  img: pokeImg });
     })
@@ -30,7 +30,7 @@ app.get('/', function(req, res) {
 app.use('/pokemon', require('./routes/pokemon'));
 
 var server = app.listen(port, function() {
-  console.log('...listening on', port );
+  // console.log('...listening on', port );
 });
 
 
