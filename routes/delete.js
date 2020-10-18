@@ -11,7 +11,9 @@ router.use(methodOverride('_method'))
 
 router.delete('/', function(req, res) {
     const pokemonName = req.body.name
+    console.log(pokemonName)
     db.pokemon.destroy({
+      
         where: { name: pokemonName }
       }).then(function() {
         // do something when done deleting
