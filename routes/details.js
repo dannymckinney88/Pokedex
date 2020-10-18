@@ -1,11 +1,18 @@
 var express = require('express');
 var router = express.Router();
-const db = require('../models')
+const axios = require('axios'); 
+const db = require('../models');
+const { default: Axios } = require('axios');
 
 
 router.get('/', function(req, res) {
+    let currentPokemon = req.query.name
+    const apiUrl = `https://pokeapi.co/api/v2/pokemon/${currentPokemon}`
     console.log(req.query.name)
-    res.send('hi')
+    axios.get(apiUrl).then(pokeData =>{
+        console.log(pokeData.data.stats[0].stat.name)
+        res.render('details', { pokemon: pokeData})
+    })
 });
 
 router.post('/', function(req, res) {

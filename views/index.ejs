@@ -1,15 +1,18 @@
 <div class="container">
-  <h1 class="text-center">The Original 151 Pokemon</h1>
-  <p class="text-center">
+<div class="d-flex justify-content-between">
+  <h1 class="text-center p-2">The Original 151 Pokemon</h1>
+  <p class="text-center p-2">
     <a href="/pokemon">Favorites</a>
   </p>
-  <div class="d-flex flex-wrap">
+</div>
+
+<div class="d-flex flex-wrap">
   <% for(let i=0; i < pokemon.length; i++) { %>
 
     <div class="card bg-info p-2" style="width: 10rem;">
       <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= i+1 %>.png" class="card-img-top" alt="">
       <div class="card-body ">
-        <p class="card-text"> <%= pokemon[i].name %> </p>
+        <p class="card-text font-weight-bold"> <%= pokemon[i].name %> </p>
         <form method="POST" action="/pokemon">
           <input hidden type="text" name="name" value="<%= pokemon[i].name %>">
           <input hidden type="text" name="url" value="<%= pokemon[i].url %>">
@@ -19,6 +22,5 @@
     </div>
 
   <% } %>
-  
-  
+</div>
 </div>
