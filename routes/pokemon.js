@@ -15,18 +15,21 @@ router.get('/', function(req, res) {
 
 // POST /pokemon - receive the name of a pokemon and add it to the database
 router.post('/', function(req, res) {
-  // console.log(req.body)
+  console.log(req.body)
   // TODO: Get form data and add a new record to DB
-  db.pokemon.create(req.body).then(newFave =>{
+  db.pokemon.findOrCreate({
+    where:{name:req.body.name}
+
+  }).then(newFave =>{
     console.log(newFave)
-    res.redirect('/', )
+    res.redirect('/pokemon', )
   })
 });
 
-db.pokemon.destroy({
-  where: { }
-}).then(function() {
-  // do something when done deleting
-});
+// db.pokemon.destroy({
+//   where: { }
+// }).then(function() {
+//   // do something when done deleting
+// });
 
 module.exports = router;

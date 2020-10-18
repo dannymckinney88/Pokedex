@@ -6,13 +6,13 @@
     <div class="d-flex flex-wrap">
     <% for(let i=0; i < pokemon.length; i++) { %>
   
-      <div class="card bg-info p-2" style="width: 10rem;">
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= i+1 %>.png" class="card-img-top" alt="">
+      <div class="card bg-dark p-2" style="width: 10rem;">
+        <img src="http://pngimg.com/uploads/pokeball/pokeball_PNG33.png" class="card-img-top" alt="">
         <div class="card-body ">
-          <p class="card-text"> <%= pokemon[i].name %> </p>
-          <form method="POST" action="/pokemon">
-            <input hidden type="text" name="name" value="<%= pokemon.name %>">
-            <button class="btn btn-success" type="submit">Add to Favorite Pokemon</button>
+          <p class="card-text  text-white"> <%= pokemon[i].name %> </p>
+          <form method="GET" action="/details">
+            <input hidden type="text" name="name" value="<%= pokemon[i].name %>">
+            <button class="btn btn-white bg-white" type="submit">More Info</button>
           </form>
         </div>
       </div>
