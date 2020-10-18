@@ -6,8 +6,6 @@ const db = require('../models')
 router.get('/', function(req, res) {
   // TODO: Get all records from the DB and render to view
   db.pokemon.findAll().then(allFaves =>{
-    console.log(allFaves)
-
     res.render('faves', { pokemon:allFaves })
   })
   // res.send('Render a page of favorites here');
@@ -15,21 +13,13 @@ router.get('/', function(req, res) {
 
 // POST /pokemon - receive the name of a pokemon and add it to the database
 router.post('/', function(req, res) {
-  console.log(req.body)
   // TODO: Get form data and add a new record to DB
   db.pokemon.findOrCreate({
     where:{name:req.body.name}
 
   }).then(newFave =>{
-    console.log(newFave)
     res.redirect('/pokemon', )
   })
 });
-
-// db.pokemon.destroy({
-//   where: { }
-// }).then(function() {
-//   // do something when done deleting
-// });
 
 module.exports = router;
