@@ -1,22 +1,39 @@
+<nav class="navbar navbar-expand-md navbar-light">
+  <a class="navbar-brand" href="/pokemon"><h3><u>Favorites</u></h3></a>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+      </li>
+    </ul>
+    <h1 class="">
+      POkemon Wishlist
+    </h1>
+  </div>
+</nav>
 <div class="container">
-<div class="d-flex justify-content-between">
+
+
+
+<!-- 
+  <div class="d-flex justify-content-between">
   <h1 class="text-center p-2">The Original 151 Pokemon</h1>
   <p class="text-center p-2">
-    <a href="/pokemon">Favorites</a>
+    <a href="/pokemon" class="text-white">Favorites</a>
   </p>
-</div>
+</div> -->
 
 <div class="d-flex flex-wrap">
   <% for(let i=0; i < pokemon.length; i++) { %>
 
-    <div class="card bg-info p-2" style="width: 10rem;">
+    <div class="card  poke-card ">
       <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= i+1 %>.png" class="card-img-top" alt="">
       <div class="card-body ">
-        <p class="card-text font-weight-bold"> <%= pokemon[i].name %> </p>
-        <form method="POST" action="/pokemon">
+        <p class="card-text font-weight-bold text-center"> <%= pokemon[i].name %> </p>
+        <form method="POST" action="/pokemon" class="d-flex flex-column align-items-center">
           <input hidden type="text" name="name" value="<%= pokemon[i].name %>">
           <input hidden type="text" name="url" value="<%= pokemon[i].url %>">
-          <button class="btn btn-success" type="submit">Add to Favorite Pokemon</button>
+          <button type="submit">Add</button>
         </form>
       </div>
     </div>

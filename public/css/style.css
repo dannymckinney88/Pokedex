@@ -1,0 +1,122 @@
+@import url(//db.onlinewebfonts.com/c/f4d1593471d222ddebd973210265762a?family=Pokemon);
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
+
+
+body{
+    background-color:#FFDE00;
+    color: black;
+   
+}
+
+table{
+    background-color: #fff;
+    border: 3px solid #3B4CCA;
+ 
+}
+
+thead, tbody, th, td{
+    border: 2px solid #3B4CCA;
+}
+h1{
+    color:white;
+    font-family: "Pokemon";
+    letter-spacing: 4px;
+    text-align: center;
+}
+
+p,th, td{
+   
+    font-size: 11px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+
+h3{
+    color: #FFDE00 ;
+    letter-spacing: 4px;
+    font-family: "Pokemon";
+}
+
+
+h5{
+    font-weight: 500;
+    font-size: 24px;
+}
+/* th,td, p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+} */
+
+button{
+    background-color: #FF0000;
+    color:#FFDE00  ;
+    font-family: 'Roboto', sans-serif;
+    border: 2px solid #3B4CCA;
+}
+
+button:hover{
+    background-color: #CC0000;
+    color:#B3A125;
+    
+}
+
+h3:hover{
+    color:#B3A125;
+}
+
+nav{
+    background-color: #CC0000;
+    margin-bottom: 25px;
+}
+
+.poke-img-container{
+    background-color: #fff;
+    border-radius: 50%;
+    border: 3px solid #3B4CCA;
+    height: 400px;
+    width: 400px;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.poke-img{
+    height: 400px;
+    width:300px;
+    /* background-color: #fff; */
+    
+}
+.back, .front{
+    height: 250px;
+    width: 125px;
+}
+
+.poke-card{
+    width: 10rem;
+    border: 3px solid #FFDE00;
+    box-shadow: inset 0px 0px 0px 10px #3B4CCA;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+.stats-container{
+    
+    border: 3px solid #CC0000;
+    background-color: white;
+}
+
+.info-container{
+    border: 3px solid #3B4CCA;
+    background-color: white;
+}
+
+.pokemon-name{
+    margin-right: 330px;
+}
+
+.abilities{
+    margin-top: 60px;
+    color:#3B4CCA;
+    font-family: 'Roboto', sans-serif;
+}

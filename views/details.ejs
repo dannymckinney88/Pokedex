@@ -1,19 +1,35 @@
+<nav class="navbar navbar-expand-md navbar-light">
+  <a class="navbar-brand" href="/"><h3><u>Home</u></h3></a>
+  <a class="navbar-brand" href="/pokemon"><h3><u>Favorites</u></h3></a>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+      </li>
+    </ul>
+    <h1 class="pokemon-name">
+      <%= pokemon.name %> 
+    </h1>
+  </div>
+</nav>
+
+
 <div class="container">
-   <ul class="nav">
+   <!-- <ul class="nav">
        <li class="nav-item">
          <a class="nav-link active" href="/">Home</a>
        </li>
        <li class="nav-item">
          <a class="nav-link" href="/pokemon">Favorites</a>
        </li>
-   </ul>
+   </ul> -->
    <div class="row">
      <div class="col">
-      <div class="media p-2">
-        <img src="<%= pokemon.sprites.front_default %>" class="mr-3" alt="...">
+       <!-- <h1><%= pokemon.name %></h1> -->
+      <div class="media p-2 info-container">
+        <img src="<%= pokemon.sprites.front_default %>" class="mr-3 front" alt="...">
         <div class="media-body">
-          <h5 class="mt-0"><%= pokemon.name %> </h5>
-          <p>basic info:</p>
+          <h5 class="mt-0">Basic info </h5>
           <ul>
               <li>
                   <p> Height: <%= pokemon.height %>  </p>
@@ -28,41 +44,59 @@
             <% } %> 
           </ul>
       
-          <div class="media mt-3 p-2">
+          <div class="media mt-3 p-2 stats-container">
             <a class="mr-3" href="#">
-              <img src="<%= pokemon.sprites.back_default %>" class="mr-3" alt="...">
+              <img src="<%= pokemon.sprites.back_default %>" class="mr-3 back" alt="...">
             </a>
             <div class="media-body">
               <h5 class="mt-0">Stats</h5>
               <ul>
                 <% for(let i=0; i< pokemon.stats.length; i++){ %> 
-                    <li> <%= pokemon.stats[i].stat.name %>: <%= pokemon.stats[i].base_stat %> </li>
+                    <li><p> <%= pokemon.stats[i].stat.name %>: <%= pokemon.stats[i].base_stat %> </p></li>
                 <% } %> 
               </ul>
             </div>
         </div>
-        <form method="POST" action="/delete?_method=DELETE">
-            <h3>Remove</h3>  
-            <h1> <%= pokemon.name %>  </h1> 
-            <button type="submit" value="<%= pokemon.name %>"name="name">DELETE</button>
-        </form>
         </div>
       </div>
      </div>
      <div class="col">
-      <img src="http://pngimg.com/uploads/pokeball/pokeball_PNG33.png" class="w-50 h-50" alt="">
+       <div class="poke-img-container d-flex flex-column align-items-center">
+      <img class="poke-img" src="<%= pokemon.sprites.other.dream_world.front_default %>" alt="">
+    </div>
+      <form method="POST" action="/delete?_method=DELETE"> 
+        <button type="submit" value="<%= pokemon.name %>"name="name">REMOVE</button>
+    </form>
      </div>
    </div>
+   <div class="">
 
+     <div>
 
-
-
-
-
-
-
-  <div class="d-flex flex-row">
-   
-  </div>
+       <h1 class="abilities">Abilities</h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col"> #</th>
+              <th scope="col"> Move </th>
+              <th scope="col">Level Learned</th>
+            </tr>
+          </thead>
+    <% for(let i=0; i < pokemon.moves.length; i++){ %> 
+            <tbody>
+              <tr>
+                <th scope="row"><%= i+1 %></th>
+                <td> <%= pokemon.moves[i].move.name %> </td>
+                <td> <%= pokemon.moves[i].version_group_details[0].level_learned_at %> </td>
+              </tr>
+            </tbody>
+            <% } %> 
+          </table>
+        </div>
+            
+    </div>
+  
 </div>
+
+
 

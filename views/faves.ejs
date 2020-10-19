@@ -1,20 +1,29 @@
+<nav class="navbar navbar-expand-md navbar-light">
+  <a class="navbar-brand" href="/"><h3><u>HOME</u></h3></a>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+      </li>
+    </ul>
+    <h1 class="">
+      Favorites
+    </h1>
+  </div>
+</nav>
+
+
 <div class="container">
- <div class="d-flex justify-content-between">
-   <h1 class="text-center p-2">Your Favorite Pokemon</h1>
-   <p class="text-center p-2">
-     <a href="/">Home</a>
-   </p>
- </div>
  <div class="d-flex flex-wrap">
    <% for(let i=0; i < pokemon.length; i++) { %>
  
-     <div class="card bg-dark p-2" style="width: 10rem;">
+     <div class="card  poke-card" style="width: 10rem;">
        <img src="http://pngimg.com/uploads/pokeball/pokeball_PNG33.png" class="card-img-top" alt="">
        <div class="card-body ">
-         <p class="card-text  text-white font-weight-bold"> <%= pokemon[i].name %> </p>
+         <p class="card-text  font-weight-bold"> <%= pokemon[i].name %> </p>
          <form method="GET" action="/details">
            <input hidden type="text" name="name" value="<%= pokemon[i].name %>">
-           <button class="btn btn-white bg-white" type="submit">More Info</button>
+           <button class="" type="submit">More Info</button>
          </form>
        </div>
      </div>
