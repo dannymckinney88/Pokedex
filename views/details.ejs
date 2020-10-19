@@ -13,19 +13,9 @@
   </div>
 </nav>
 
-
 <div class="container">
-   <!-- <ul class="nav">
-       <li class="nav-item">
-         <a class="nav-link active" href="/">Home</a>
-       </li>
-       <li class="nav-item">
-         <a class="nav-link" href="/pokemon">Favorites</a>
-       </li>
-   </ul> -->
    <div class="row">
      <div class="col">
-       <!-- <h1><%= pokemon.name %></h1> -->
       <div class="media p-2 info-container">
         <img src="<%= pokemon.sprites.front_default %>" class="mr-3 front" alt="...">
         <div class="media-body">
@@ -70,9 +60,7 @@
      </div>
    </div>
    <div class="">
-
      <div>
-
        <h1 class="abilities">Abilities</h1>
         <table class="table">
           <thead>
@@ -82,20 +70,18 @@
               <th scope="col">Level Learned</th>
             </tr>
           </thead>
-    <% for(let i=0; i < pokemon.moves.length; i++){ %> 
-            <tbody>
-              <tr>
-                <th scope="row"><%= i+1 %></th>
-                <td> <%= pokemon.moves[i].move.name %> </td>
-                <td> <%= pokemon.moves[i].version_group_details[0].level_learned_at %> </td>
-              </tr>
-            </tbody>
+            <% for(let i=0; i < pokemon.moves.length; i++){ %> 
+              <tbody>
+               <tr>
+                 <th scope="row"><%= i+1 %></th>
+                 <td> <%= pokemon.moves[i].move.name %> </td>
+                 <td> <%= pokemon.moves[i].version_group_details[0].level_learned_at %> </td>
+               </tr>
+              </tbody>
             <% } %> 
           </table>
-        </div>
-            
+        </div>   
     </div>
-  
 </div>
 
 

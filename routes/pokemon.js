@@ -8,7 +8,6 @@ router.get('/', function(req, res) {
   db.pokemon.findAll().then(allFaves =>{
     res.render('faves', { pokemon:allFaves })
   })
-  // res.send('Render a page of favorites here');
 });
 
 // POST /pokemon - receive the name of a pokemon and add it to the database
@@ -16,7 +15,6 @@ router.post('/', function(req, res) {
   // TODO: Get form data and add a new record to DB
   db.pokemon.findOrCreate({
     where:{name:req.body.name}
-
   }).then(newFave =>{
     res.redirect('/pokemon', )
   })

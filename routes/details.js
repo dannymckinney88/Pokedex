@@ -1,8 +1,8 @@
-var express = require('express');
-var router = express.Router();
+// require
+const express = require('express');
+const router = express.Router();
 const axios = require('axios'); 
 const db = require('../models');
-const { default: Axios } = require('axios');
 
 
 router.get('/', function(req, res) {
@@ -12,10 +12,5 @@ router.get('/', function(req, res) {
         res.render('details', { pokemon: pokeData.data})
     })
 });
-
-router.post('/', function(req, res) {
-    
-});
-
 
 module.exports = router;
